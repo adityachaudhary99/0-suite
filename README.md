@@ -1,59 +1,63 @@
 # 0-suite
 
-**Privacy-first browser tools suite.** All tools run entirely client-side, nothing is uploaded, no API keys, no tracking.
+**Privacy-first browser tools.** Every tool runs entirely client-side — nothing is uploaded, no API keys, no accounts, no tracking. Open DevTools → Network and watch: your data never leaves the page.
 
-## Tools (Unified Suite — Single Deployment)
+One integrated [Astro](https://astro.build) app. Each hub is a route group with its own accent and theme, sharing a single semantic-token design system.
 
-- **[dev0](./packages/dev0)** — 10 developer utilities (JWT decoder, regex tester, cron parser, base64, epoch, json-to-types, jq playground, ERD, UUID, cert inspector)
-- **[web0](./packages/web0)** — 6 network tools (DNS lookup, RDAP, HTTP headers analyzer, WebSocket tester, email header analyzer, CIDR calculator)
-- **[data0](./packages/data0)** — SQL query any CSV, Parquet, or JSON file in your browser via DuckDB-WASM
-- **[privacy0](./packages/privacy0)** — Privacy-focused utilities (coming soon)
+## Hubs
 
-## Future Suites
+| Hub | Accent | What it does |
+|-----|--------|--------------|
+| **dev0** | blue | 10 developer utilities — JWT decoder, regex tester, cron parser, base64, epoch converter, JSON→types, jq playground, ERD generator, UUID/ULID, cert inspector |
+| **web0** | teal | 6 network tools — DNS-over-HTTPS lookup, RDAP, HTTP header audit, WebSocket tester, email-header analyzer, CIDR calculator |
+| **data0** | violet | SQL over any CSV / Parquet / JSON file in your browser via DuckDB-WASM — no upload, runs on data too big or too sensitive to paste elsewhere |
+| **privacy0** | emerald | 4 privacy tools — PII scrubber (clean text before you paste it into a chatbot), file metadata stripper, encrypted local notes, browser-fingerprint check |
 
-Separate deployments (ai0, media0) are developed separately under browser-based-tools/ and will eventually move to their own repos. They'll link back to 0-suite from their sites.
+`hub0` is the unified landing page that links them together.
 
-## Development
+> Why client-side matters now: the safest way to use these alongside AI tools is to never hand your data to anyone's servers. Scrub it, decode it, query it — locally, in the tab.
 
-This is a monorepo using npm/pnpm workspaces for the unified suite.
+## Develop
+
+Requires Node 18+.
 
 ```bash
-# Install dependencies (from 0-suite root)
 npm install
-# or: pnpm install
-
-# Develop a specific tool
-cd packages/dev0      # or: web0, data0, privacy0
-npm run dev
+npm run dev       # local dev server
+npm run build     # static build to dist/
+npm run preview   # serve the production build
+npm run check     # astro check (type/diagnostics)
 ```
 
 ## Architecture
 
-Unified suite tools (packages/) are independently deployable as routes:
-- **dev0:** Astro + Tailwind + TypeScript (blue accent `#2563eb`)
-- **web0:** Astro + Tailwind + TypeScript (teal accent `#0d9488`)
-- **data0:** Vite + vanilla CSS + TypeScript (violet accent `#7c3aed`)
-- **privacy0:** (TBD)
+Single Astro 5 app, `output: 'static'` (MPA) — every route ships its own CSS bundle, so per-hub themes never collide.
 
-Future suites (ai0, media0) are separate repos/deployments with their own stacks.
+```
+src/
+  pages/
+    index.astro        # hub0 landing
+    <hub>/*.astro      # one route per tool (dev0/, web0/, data0/, privacy0/)
+  hubs/
+    <hub>/             # per-hub components, styles, lib
+```
 
-## Design
+- **Stack:** Astro + Tailwind + TypeScript, all hubs (data0 included — it's Astro, not Vite).
+- **Theme:** paper (light) / nocturne (dark) via `data-theme`, persisted to `localStorage['0-theme']`.
+- **Token contract:** hubs use semantic CSS vars (`--bg`, `--ink`, `--accent`, …) — never raw colors. Accent is the only per-hub differentiator.
+- **Heavy deps run in-browser:** DuckDB-WASM (data0), exifr + pdf-lib (privacy0 metadata), jq-web / quicktype-core / dagre (dev0).
+- **SEO:** static URLs, unique titles + meta, `SoftwareApplication` JSON-LD, sitemap, robots.txt.
 
-**Shared design principles:**
-- **Per-hub minimal design:** White background + accent color, system-ui font + JetBrains Mono
-- **Token contract:** Each hub uses semantic CSS vars (`--bg`, `--ink`, `--accent`, etc.) — never raw colors
-- **Theme toggle:** Light/dark via `data-theme` attribute, persisted to `localStorage('0-theme')`
-- **Trust strip:** Above the fold — "100% client-side — your data never leaves this page. Verify: DevTools → Network."
-- **Typography:** system-ui for body/UI, JetBrains Mono (self-hosted via `@fontsource/jetbrains-mono`) for labels, data, code
-- **SEO:** Real static URLs, unique `<title>`, meta descriptions, JSON-LD (`SoftwareApplication`), `robots.txt`, `sitemap.xml`
-- **a11y:** 2px accent focus ring (offset 2px), all interactive elements, labels on inputs, `aria-live` for status updates, WCAG AA contrast
+The canonical site URL is a placeholder in `astro.config.mjs` (`site:`) — set it once a domain is chosen.
 
-See `../docs/DESIGN.md` (meta-project) for full design register and token definitions.
+## Licensing scaffold
 
-## Entitlements & Licensing
+Everything is free. An optional offline license-verification path (ECDSA P-256, public-key-only, no network calls) is wired in so paid features can be added later without refactoring — it gates nothing today. See `docs/MONETIZATION.md` in the parent project for the design. No signing keys live in this repo.
 
-Everything free at launch. Licensing infrastructure (ECDSA P-256 offline verification) is built in for future paid features without refactoring. See `../docs/MONETIZATION.md` for the architecture.
+## Roadmap
+
+`ai0` (on-device AI) and `media0` (transcode/transcribe) are planned as separate deployments and are **not** in this repo.
 
 ## License
 
-MIT
+[MIT](./LICENSE)

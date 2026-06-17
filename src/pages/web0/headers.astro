@@ -16,14 +16,14 @@ import ToolLayout from '../../hubs/web0/components/ToolLayout.astro';
         <textarea id="headers-paste" rows="8" spellcheck="false"
           placeholder="Paste raw response headers, e.g. the output of `curl -I https://example.com`, or DevTools → Network → (request) → Response Headers"
           class="w-full bg-raised border border-rule rounded px-3 py-2 font-mono text-sm text-ink resize-y focus:outline-none focus:border-accent"></textarea>
-        <button id="headers-audit-btn" class="btn">Audit headers</button>
+        <button id="headers-audit-btn" class="font-mono text-xs uppercase tracking-wider font-medium bg-accent text-accent-ink px-4 py-2 rounded">Audit headers</button>
       </div>
 
       <div id="fetch-panel" class="hidden space-y-3">
         <div class="flex gap-2">
           <input id="headers-url" type="text" placeholder="https://example.com" spellcheck="false"
             class="flex-1 bg-raised border border-rule rounded px-3 py-2 font-mono text-sm text-ink focus:outline-none focus:border-accent" />
-          <button id="headers-fetch-btn" class="btn">Fetch</button>
+          <button id="headers-fetch-btn" class="font-mono text-xs uppercase tracking-wider font-medium bg-accent text-accent-ink px-4 py-2 rounded">Fetch</button>
         </div>
         <p class="text-xs text-muted">Best-effort. Browsers only expose cross-origin headers the server allows via CORS. Paste mode gives a complete audit.</p>
       </div>
