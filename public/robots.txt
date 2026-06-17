@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap URL — update the domain once it is finalized (matches `site` in astro.config.mjs)
+Sitemap: https://0-suite.example/sitemap-index.xml

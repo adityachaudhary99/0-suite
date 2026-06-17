@@ -1,0 +1,126 @@
+﻿---
+import Base from '../hubs/hub0/layouts/Base.astro';
+
+// Bento composition: dev0 is the flagship (10 tools) → large tile spanning two
+// rows; web0 + data0 stack beside it; privacy0 (the differentiator) runs wide
+// across the bottom. `cls` carries the grid-span for each tile.
+const hubs = [
+  {
+    name: 'dev0',
+    accent: '#2563eb',
+    url: '/dev0',
+    count: '10',
+    desc: 'JWT decoder, regex tester, cron parser, base64, epoch converter, JSON→types, jq playground, ERD from SQL, UUID generator, certificate inspector.',
+    cls: 'sm:col-span-2 sm:row-span-2',
+    featured: true,
+    delay: '0ms',
+  },
+  {
+    name: 'web0',
+    accent: '#0d9488',
+    url: '/web0',
+    count: '6',
+    desc: 'DNS lookup, RDAP domain search, HTTP headers analyzer, WebSocket tester, email header analyzer, CIDR calculator.',
+    cls: '',
+    featured: false,
+    delay: '80ms',
+  },
+  {
+    name: 'data0',
+    accent: '#7c3aed',
+    url: '/data0',
+    count: '1',
+    desc: 'SQL query engine for CSV, Parquet, and JSON files powered by DuckDB-WASM. Joins, CTEs, window functions. Your data never leaves the tab.',
+    cls: '',
+    featured: false,
+    delay: '160ms',
+  },
+  {
+    name: 'privacy0',
+    accent: '#059669',
+    url: '/privacy0',
+    count: '4',
+    desc: 'PII scrubber, metadata stripper, AES-256-GCM encrypted notes, browser fingerprint inspector.',
+    cls: 'sm:col-span-3',
+    featured: false,
+    delay: '240ms',
+  },
+] as const;
+---
+<Base
+  title="0-suite - browser tools that respect your privacy"
+  description="A suite of browser-native developer and privacy tools. Everything runs client-side: no uploads, no trackers, no API keys."
+>
+  <!-- Header -->
+  <header class="border-b border-rule">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-5 pb-4 flex items-baseline justify-between">
+      <a href="/" class="display text-2xl tracking-tight">
+        <span class="text-accent">0</span>-suite
+      </a>
+      <div class="flex items-center gap-5">
+        <button id="theme-toggle" class="label hover:text-ink transition-colors" aria-label="Toggle theme">◐ theme</button>
+        <a href="https://github.com/adityachaudhary99" class="label hover:text-ink transition-colors" rel="noopener">github ↗</a>
+        <a href="https://ko-fi.com/thecalendre" class="label hover:text-accent transition-colors" rel="noopener">♡ sponsor</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6">
+
+    <!-- Hero -->
+    <section class="hero pt-20 pb-16 fade-in">
+      <!-- Oversized suite mark, bleeding off the top-right and breaking the column grid -->
+      <span class="hero-zero" aria-hidden="true">0</span>
+      <div class="hero-content max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.05] text-ink">
+          Browser tools<br />
+          that <span class="text-accent">respect you.</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-muted max-w-xl leading-relaxed">
+          Open source utilities for developers and privacy-conscious users. Everything runs in your browser. Verify in DevTools → Network.
+        </p>
+        <p class="label mt-5">100% client-side · 0 uploads · 0 trackers · 0 API keys</p>
+      </div>
+    </section>
+
+    <!-- Hub cards — asymmetric bento (see hubs[].cls for spans) -->
+    <section class="pb-24">
+      <h2 class="label mb-6">The suite</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 sm:auto-rows-fr gap-4">
+        {hubs.map((hub) => (
+          <a
+            href={hub.url}
+            class:list={['hub-card group flex flex-col p-6 rounded-lg border border-rule bg-raised fade-in', hub.cls, { 'hub-card--featured': hub.featured }]}
+            style={`--hub-accent: ${hub.accent}; animation-delay: ${hub.delay}`}
+            rel="noopener"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <span class="hub-dot" aria-hidden="true"></span>
+              <span class:list={['hub-title font-semibold text-ink', hub.featured ? 'text-2xl' : 'text-xl']}>{hub.name}</span>
+              <span class="hub-count label ml-auto">{hub.count} tool{hub.count !== '1' ? 's' : ''}</span>
+            </div>
+            <p class:list={['text-muted leading-relaxed mb-4', hub.featured ? 'text-base max-w-md' : 'text-sm']}>{hub.desc}</p>
+            <span class="hub-open label mt-auto">open ↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-rule">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between gap-2">
+      <div class="label">0-suite · browser tools suite · all client-side · MIT</div>
+      <div class="label flex gap-4">
+        <a href="https://ko-fi.com/thecalendre" class="hover:text-accent transition-colors" rel="noopener">♡ sponsor</a>
+        <a href="https://github.com/adityachaudhary99" class="hover:text-ink transition-colors" rel="noopener">github ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    import { initThemeToggle } from '../hubs/hub0/scripts/theme';
+    initThemeToggle(document.getElementById('theme-toggle')!);
+  </script>
+</Base>

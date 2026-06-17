@@ -1,0 +1,33 @@
+﻿---
+const tools = [
+  { href: '/web0/dns', label: 'dns' }, { href: '/web0/email', label: 'email' },
+  { href: '/web0/headers', label: 'headers' }, { href: '/web0/ws', label: 'websocket' },
+  { href: '/web0/rdap', label: 'rdap' }, { href: '/web0/cidr', label: 'cidr' },
+];
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="border-b border-rule">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-5 pb-3 flex items-baseline justify-between">
+    <a href="/web0" class="display text-2xl tracking-tight">web<span class="text-accent">0</span></a>
+    <div class="flex items-center gap-5">
+      <button id="theme-toggle" class="label hover:text-ink" aria-label="Toggle theme">◐ theme</button>
+      <a href="https://github.com/adityachaudhary99/web0" class="label hover:text-ink">github ↗</a>
+      <a href="https://ko-fi.com/thecalendre" class="label hover:text-accent" rel="noopener">♡ sponsor</a>
+    </div>
+  </div>
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 pb-3 overflow-x-auto" aria-label="Tools">
+    <div class="flex gap-5 min-w-max">
+      {tools.map((t) => (
+        <a href={t.href}
+          aria-current={path === t.href ? 'page' : undefined}
+          class={`label hover:text-ink ${path === t.href ? 'text-accent underline underline-offset-4' : ''}`}>
+          {t.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+<script>
+  import { initThemeToggle } from '../scripts/theme';
+  initThemeToggle(document.getElementById('theme-toggle')!);
+</script>
