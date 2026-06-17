@@ -17,6 +17,7 @@
     "@duckdb/duckdb-wasm": "^1.29.0",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@peculiar/x509": "^2.0.0",
+    "@vercel/analytics": "^2.0.1",
     "apache-arrow": "^17.0.0",
     "astro": "^5.1.5",
     "croner": "^10.0.1",
