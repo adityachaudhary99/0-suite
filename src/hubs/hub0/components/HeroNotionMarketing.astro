@@ -1,0 +1,86 @@
+---
+import Icon from './Icon.astro';
+import { hubs } from '../lib/suite';
+const dev0 = hubs[0];
+const tech = [
+  { icon: 'zap', label: 'WebAssembly' },
+  { icon: 'lock', label: 'Web Crypto API' },
+  { icon: 'database', label: 'DuckDB-WASM' },
+  { icon: 'cloudOff', label: 'Offline-capable' },
+  { icon: 'gitBranch', label: 'MIT open source' },
+  { icon: 'shieldCheck', label: 'Zero-knowledge' },
+];
+---
+<section class="hero-premium max-w-6xl mx-auto w-full px-5 sm:px-8 pt-16 sm:pt-24 pb-12 text-center">
+  <!-- Badge -->
+  <span class="pill reveal">
+    <span class="pill-dot"></span>
+    <span class="mono text-[0.76rem] tracking-tight">21 tools · 0 servers · 100% client-side</span>
+  </span>
+
+  <h1 class="mt-7 text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-ink max-w-4xl mx-auto reveal" style="animation-delay:40ms">
+    Browser tools that<br class="hidden sm:block" />
+    <span class="text-grad">respect&nbsp;you.</span>
+  </h1>
+
+  <p class="mt-6 text-lg sm:text-xl text-muted max-w-2xl mx-auto leading-relaxed reveal" style="animation-delay:90ms">
+    A suite of open-source developer &amp; privacy utilities that run entirely in your browser.
+    No accounts, no uploads, no API keys — just open a tool and go.
+  </p>
+
+  <div class="mt-9 flex flex-wrap items-center justify-center gap-3 reveal" style="animation-delay:140ms">
+    <a href="#suite" class="nbtn shine !px-5 !py-2.5 !text-[0.95rem]">Explore the suite<Icon name="arrowRight" size={16} stroke={2} /></a>
+    <a href="https://github.com/adityachaudhary99/0-suite" rel="noopener" class="nbtn-ghost !px-5 !py-2.5"><Icon name="github" size={16} />View source</a>
+  </div>
+
+  <!-- Faux product window with accent glow halo -->
+  <div class="win-wrap mt-14 mx-auto max-w-3xl text-left reveal" style="animation-delay:200ms">
+    <div class="win ring-anim">
+      <div class="win-bar">
+        <span class="win-dot r"></span><span class="win-dot y"></span><span class="win-dot g"></span>
+        <span class="win-url mono">0-suite.com/dev0/jwt</span>
+        <span class="ml-auto hidden sm:flex items-center gap-1.5 label !text-[0.6rem]"><span class="w-1.5 h-1.5 rounded-full bg-[var(--ok)]"></span>0 requests</span>
+      </div>
+      <div class="grid grid-cols-[8.5rem_1fr] sm:grid-cols-[11.5rem_1fr]">
+        <!-- sidebar -->
+        <div class="win-side p-2.5 space-y-0.5">
+          <p class="label !text-[0.58rem] px-1.5 pb-1.5">Hubs</p>
+          {hubs.map((hub, i) => (
+            <div class:list={['win-side-item', i === 0 && 'active']}>
+              <span class="win-side-dot" style={`background:${hub.accent}`}></span>
+              <span>{hub.name}</span>
+              <span class="ml-auto opacity-55 text-[0.68rem]">{hub.count}</span>
+            </div>
+          ))}
+        </div>
+        <!-- content: dev0 -->
+        <div class="p-4 sm:p-5">
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="hub-icon !w-7 !h-7" style="--hub-accent:#2383e2"><Icon name="terminal" size={15} /></span>
+            <span class="font-bold text-ink">dev0</span>
+            <span class="label ml-auto">10 tools</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5" style="--hub-accent:#2383e2">
+            {dev0.tools.map((t) => <span class="tool-link">{t.name}</span>)}
+          </div>
+          <div class="mt-4 rounded-lg border border-rule bg-sunken px-3.5 py-3 font-mono text-xs leading-relaxed">
+            <div class="text-muted"><span class="text-ink">$</span> echo "eyJhbGci…" | jwt --decode</div>
+            <div class="mt-1.5 text-[var(--ink-soft)]">{`{ "alg": "HS256", "sub": "1337", "name": "ada" }`}</div>
+            <div class="mt-1.5 text-[var(--ok)] flex items-center gap-1.5">
+              <Icon name="check" size={13} stroke={2.4} /> decoded locally · nothing left the tab<span class="cursor"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech marquee -->
+  <div class="marquee mt-12 max-w-3xl mx-auto reveal" style="animation-delay:260ms">
+    <div class="marquee-track">
+      {[...tech, ...tech].map((t) => (
+        <span class="marquee-item"><Icon name={t.icon} size={14} />{t.label}</span>
+      ))}
+    </div>
+  </div>
+</section>

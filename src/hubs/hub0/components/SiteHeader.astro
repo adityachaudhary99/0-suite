@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+---
+<header class="sticky top-0 z-30 border-b border-rule header-blur">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 h-14 flex items-center justify-between gap-4">
+    <a href="/" class="mono font-bold text-[1.05rem] tracking-tight text-ink">
+      <span class="text-accent">0</span>-suite
+    </a>
+    <nav class="flex items-center gap-1 sm:gap-2">
+      <button id="theme-toggle" class="label inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md hover:bg-raised transition-colors" aria-label="Toggle light / dark theme">
+        <Icon name="contrast" size={14} />
+        <span class="hidden sm:inline">theme</span>
+      </button>
+      <a href="https://github.com/adityachaudhary99/0-suite" rel="noopener" aria-label="GitHub"
+         class="label inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md hover:bg-raised transition-colors">
+        <Icon name="github" size={14} />
+        <span class="hidden sm:inline">github</span>
+      </a>
+      <a href="#suite" class="nbtn !text-sm !py-2 !px-3.5 ml-1">
+        Open the suite
+        <Icon name="arrowRight" size={15} stroke={2} />
+      </a>
+    </nav>
+  </div>
+</header>

@@ -18,7 +18,7 @@ const jsonLd = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#4f46e5" />
+    <meta name="theme-color" content="#191919" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -32,8 +32,10 @@ const jsonLd = {
     <meta name="twitter:description" content={description} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <script is:inline>
+      document.documentElement.classList.add('js');
+      // Dark (nocturne) is the default; only an explicit saved 'paper' opts into light.
       const t = localStorage.getItem('0-theme');
-      if (t === 'nocturne') document.documentElement.dataset.theme = 'nocturne';
+      document.documentElement.dataset.theme = t === 'paper' ? 'paper' : 'nocturne';
     </script>
     <Analytics />
   </head>
