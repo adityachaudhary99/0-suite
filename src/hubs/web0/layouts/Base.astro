@@ -39,7 +39,7 @@ const jsonLd = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <script is:inline>
       const t = localStorage.getItem('0-theme');
-      if (t === 'nocturne') document.documentElement.dataset.theme = 'nocturne';
+      document.documentElement.dataset.theme = t === 'paper' ? 'paper' : 'nocturne';
     </script>
     <Analytics />
   </head>
