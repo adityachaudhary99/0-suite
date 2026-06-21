@@ -67,10 +67,16 @@ export const hubs: Hub[] = [
   },
   {
     name: 'data0', slug: 'data0', url: '/data0', icon: 'database', accent: '#9065b0',
-    count: '1', tagline: 'Data & SQL',
-    desc: 'Run SQL over CSV, Parquet and JSON with DuckDB-WASM. Joins, CTEs, window functions — data never leaves the tab.',
+    count: '7', tagline: 'Data & SQL',
+    desc: 'A DuckDB-WASM SQL workbench plus client-side converters: CSV⇄JSON, YAML⇄JSON, SQL formatting, Markdown tables, base conversion and charts.',
     tools: [
       { name: 'SQL query engine', href: '/data0' },
+      { name: 'CSV ⇄ JSON', href: '/data0/csv-json' },
+      { name: 'YAML ⇄ JSON', href: '/data0/yaml-json' },
+      { name: 'SQL formatter', href: '/data0/sql-format' },
+      { name: 'Markdown table', href: '/data0/markdown-table' },
+      { name: 'base converter', href: '/data0/base' },
+      { name: 'chart maker', href: '/data0/chart' },
     ],
     cls: '', featured: false, delay: '140ms',
   },
@@ -92,7 +98,7 @@ export const hubs: Hub[] = [
 ];
 
 export const stats = [
-  { num: '27', accent: false, label: 'tools' },
+  { num: '33', accent: false, label: 'tools' },
   { num: '0', accent: true, label: 'servers' },
   { num: '0', accent: true, label: 'trackers' },
   { num: '0', accent: true, label: 'API keys' },
