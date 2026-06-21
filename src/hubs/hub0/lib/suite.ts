@@ -76,20 +76,23 @@ export const hubs: Hub[] = [
   },
   {
     name: 'privacy0', slug: 'privacy0', url: '/privacy0', icon: 'shield', accent: '#448361',
-    count: '4', tagline: 'Privacy & safety',
-    desc: 'PII scrubber, metadata stripper, AES-256-GCM encrypted notes and a browser fingerprint inspector.',
+    count: '7', tagline: 'Privacy & safety',
+    desc: 'PII scrubber, metadata stripper, AES-256-GCM notes, password generator, file-hash checker and image steganography.',
     tools: [
       { name: 'PII scrubber', href: '/privacy0/scrub' },
       { name: 'metadata stripper', href: '/privacy0/metadata' },
       { name: 'encrypted notes', href: '/privacy0/notes' },
       { name: 'fingerprint', href: '/privacy0/fingerprint' },
+      { name: 'password gen', href: '/privacy0/password' },
+      { name: 'file hasher', href: '/privacy0/filehash' },
+      { name: 'steganography', href: '/privacy0/steganography' },
     ],
     cls: 'sm:col-span-3', featured: false, delay: '210ms',
   },
 ];
 
 export const stats = [
-  { num: '24', accent: false, label: 'tools' },
+  { num: '27', accent: false, label: 'tools' },
   { num: '0', accent: true, label: 'servers' },
   { num: '0', accent: true, label: 'trackers' },
   { num: '0', accent: true, label: 'API keys' },
