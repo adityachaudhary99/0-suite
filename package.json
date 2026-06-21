@@ -26,6 +26,7 @@
     "jq-web": "^0.6.2",
     "js-yaml": "^5.0.0",
     "pdf-lib": "^1.17.1",
+    "qrcode-generator": "^2.0.4",
     "quicktype-core": "^23.2.6",
     "reflect-metadata": "^0.2.2",
     "sql-formatter": "^15.8.2",

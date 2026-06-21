@@ -20,6 +20,7 @@ export const ICONS: Record<string, string> = {
   contrast: '<circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
   search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  palette: '<circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.504 5.555-5.555C21.965 6.012 17.461 2 12 2z"/>',
 };
 
 export interface Tool { name: string; href: string; }
@@ -49,7 +50,7 @@ export const hubs: Hub[] = [
       { name: 'SHA hash', href: '/dev0/hash' },
       { name: 'diff checker', href: '/dev0/diff' },
     ],
-    cls: 'sm:col-span-2 sm:row-span-2', featured: true, delay: '0ms',
+    cls: '', featured: true, delay: '0ms',
   },
   {
     name: 'web0', slug: 'web0', url: '/web0', icon: 'globe', accent: '#0f9488',
@@ -93,12 +94,27 @@ export const hubs: Hub[] = [
       { name: 'file hasher', href: '/privacy0/filehash' },
       { name: 'steganography', href: '/privacy0/steganography' },
     ],
-    cls: 'sm:col-span-3', featured: false, delay: '210ms',
+    cls: '', featured: false, delay: '210ms',
+  },
+  {
+    name: 'ui0', slug: 'ui0', url: '/ui0', icon: 'palette', accent: '#c2410c',
+    count: '7', tagline: 'Design & web',
+    desc: 'Front-end helpers: color picker with contrast, gradient maker, favicon and QR generators, meta-tag preview, URL encoder and lorem ipsum.',
+    tools: [
+      { name: 'color picker', href: '/ui0/color' },
+      { name: 'gradient maker', href: '/ui0/gradient' },
+      { name: 'meta preview', href: '/ui0/meta' },
+      { name: 'favicon gen', href: '/ui0/favicon' },
+      { name: 'QR code', href: '/ui0/qr' },
+      { name: 'URL encoder', href: '/ui0/url' },
+      { name: 'lorem ipsum', href: '/ui0/lorem' },
+    ],
+    cls: 'sm:col-span-2', featured: false, delay: '280ms',
   },
 ];
 
 export const stats = [
-  { num: '33', accent: false, label: 'tools' },
+  { num: '40', accent: false, label: 'tools' },
   { num: '0', accent: true, label: 'servers' },
   { num: '0', accent: true, label: 'trackers' },
   { num: '0', accent: true, label: 'API keys' },
