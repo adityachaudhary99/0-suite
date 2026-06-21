@@ -32,7 +32,7 @@ export interface Hub {
 export const hubs: Hub[] = [
   {
     name: 'dev0', slug: 'dev0', url: '/dev0', icon: 'terminal', accent: '#2383e2',
-    count: '10', tagline: 'Developer utilities',
+    count: '13', tagline: 'Developer utilities',
     desc: 'The everyday developer toolbox — decode, parse, convert and inspect without leaving the tab.',
     tools: [
       { name: 'JWT decoder', href: '/dev0/jwt' },
@@ -45,6 +45,9 @@ export const hubs: Hub[] = [
       { name: 'ERD', href: '/dev0/erd' },
       { name: 'UUID', href: '/dev0/uuid' },
       { name: 'cert inspector', href: '/dev0/cert' },
+      { name: 'JSON formatter', href: '/dev0/json' },
+      { name: 'SHA hash', href: '/dev0/hash' },
+      { name: 'diff checker', href: '/dev0/diff' },
     ],
     cls: 'sm:col-span-2 sm:row-span-2', featured: true, delay: '0ms',
   },
@@ -86,7 +89,7 @@ export const hubs: Hub[] = [
 ];
 
 export const stats = [
-  { num: '21', accent: false, label: 'tools' },
+  { num: '24', accent: false, label: 'tools' },
   { num: '0', accent: true, label: 'servers' },
   { num: '0', accent: true, label: 'trackers' },
   { num: '0', accent: true, label: 'API keys' },
