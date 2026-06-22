@@ -1,33 +1,18 @@
-/* hub0 — Notion-inspired design tokens (landing only; tool hubs keep their own).
-   Warm off-white paper + true Notion #191919 dark, Notion-blue accent, soft
-   callout tints. Semantic vars only; components never use raw hex. */
+/* hub0 — 0-suite landing tokens. Terminal-mono vibe matching the hubs:
+   neutral paper/nocturne base + a single suite-blue accent. Semantic vars only. */
 :root, [data-theme="paper"] {
-  --bg: #ffffff; --bg-raised: #f7f6f3;        /* Notion warm off-white surface */
-  --bg-sunken: #fbfbfa;
-  --ink: #37352f;                              /* Notion default text (warm near-black) */
-  --ink-soft: #4f4d47;
-  --muted: #787774;                            /* Notion secondary gray */
-  --accent: #2383e2; --accent-ink: #ffffff;    /* Notion blue */
-  --accent-soft: #e9f1fb;                      /* blue callout wash */
-  --rule: rgba(55, 53, 47, 0.12);
-  --rule-strong: rgba(55, 53, 47, 0.28);
-  --shadow: 0 1px 2px rgba(15,15,15,0.06), 0 4px 12px rgba(15,15,15,0.05);
-  --shadow-lift: 0 2px 4px rgba(15,15,15,0.07), 0 12px 28px -8px rgba(15,15,15,0.12);
-  --ok: #448361; --warn: #cb7b37; --err: #e03e3e;
+  --bg: #ffffff; --bg-raised: #f6f6f7;
+  --ink: #18181b; --muted: #6b6b74;
+  --accent: #2563eb; --accent-ink: #ffffff;
+  --rule: rgba(24, 24, 27, 0.12); --rule-strong: #18181b;
+  --ok: #16a34a; --warn: #b45309; --err: #dc2626;
 }
 [data-theme="nocturne"] {
-  --bg: #191919; --bg-raised: #252525;         /* Notion dark page + block */
-  --bg-sunken: #202020;
-  --ink: #ffffff;
-  --ink-soft: rgba(255,255,255,0.81);
-  --muted: #9b9b9b;
-  --accent: #4f9cf0; --accent-ink: #ffffff;    /* lighter Notion blue for dark contrast */
-  --accent-soft: #20384d;                       /* blue callout wash (dark) */
-  --rule: rgba(255, 255, 255, 0.13);
-  --rule-strong: rgba(255, 255, 255, 0.28);
-  --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.3);
-  --shadow-lift: 0 2px 4px rgba(0,0,0,0.5), 0 14px 30px -8px rgba(0,0,0,0.55);
-  --ok: #4dab9a; --warn: #cb7b37; --err: #ff7369;
+  --bg: #0a0a0b; --bg-raised: #161618;
+  --ink: #f4f4f5; --muted: #a1a1aa;
+  --accent: #60a5fa; --accent-ink: #0a0a0b;
+  --rule: rgba(244, 244, 245, 0.14); --rule-strong: #f4f4f5;
+  --ok: #4ade80; --warn: #fbbf24; --err: #f87171;
 }
 html { background: var(--bg); color: var(--ink); scrollbar-gutter: stable; }
-::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); color: var(--ink); }
+::selection { background: var(--accent); color: var(--accent-ink); }
