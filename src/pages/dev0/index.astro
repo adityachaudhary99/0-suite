@@ -31,10 +31,10 @@ const tools = [
     </section>
 
     <section class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule border border-rule rounded overflow-hidden">
-      {tools.map((t) => (
+      {tools.map((t, i) => (
         <a
           href={t.href}
-          class="group bg-bg p-5 hover:bg-raised transition-colors"
+          class:list={["group bg-bg p-5 hover:bg-raised transition-colors", tools.length % 2 === 1 && i === tools.length - 1 && "sm:col-span-2"]}
         >
           <div class="flex items-baseline justify-between gap-2">
             <span class="font-semibold text-ink group-hover:text-accent transition-colors">{t.name}</span>
