@@ -7,8 +7,9 @@ import sitemap from '@astrojs/sitemap';
 // MPA static output: every route ships its own CSS bundle, so per-hub themes never collide.
 export default defineConfig({
   // Canonical site URL — single source for canonical tags, OG URLs, and the sitemap.
-  // PLACEHOLDER: domain not finalized. Change this one value once the domain is chosen.
-  site: 'https://0-suite.example',
+  // Set to the intended Vercel production domain. If a custom domain is added
+  // later, change this one value (and robots.txt) and redeploy.
+  site: 'https://0-suite.vercel.app',
   output: 'static',
   integrations: [tailwind(), sitemap()],
   build: { inlineStylesheets: 'auto' },
