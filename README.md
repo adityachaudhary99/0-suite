@@ -4,16 +4,19 @@
 
 One integrated [Astro](https://astro.build) app. Each hub is a route group with its own accent and theme, sharing a single semantic-token design system.
 
+![0-suite demo — 40 client-side browser tools across five hubs](docs/media/0-suite-demo.gif)
+
 ## Hubs
 
 | Hub | Accent | What it does |
 |-----|--------|--------------|
-| **dev0** | blue | 10 developer utilities — JWT decoder, regex tester, cron parser, base64, epoch converter, JSON→types, jq playground, ERD generator, UUID/ULID, cert inspector |
+| **dev0** | blue | 13 developer utilities — JWT decoder, regex tester, cron parser, base64, epoch converter, JSON→types, jq playground, ERD generator, UUID/ULID, cert inspector, JSON formatter, SHA hash, diff checker |
 | **web0** | teal | 6 network tools — DNS-over-HTTPS lookup, RDAP, HTTP header audit, WebSocket tester, email-header analyzer, CIDR calculator |
-| **data0** | violet | SQL over any CSV / Parquet / JSON file in your browser via DuckDB-WASM — no upload, runs on data too big or too sensitive to paste elsewhere |
-| **privacy0** | emerald | 4 privacy tools — PII scrubber (clean text before you paste it into a chatbot), file metadata stripper, encrypted local notes, browser-fingerprint check |
+| **data0** | violet | 7 data tools — DuckDB-WASM SQL workbench (CSV / Parquet / JSON) plus CSV⇄JSON, YAML⇄JSON, SQL formatter, Markdown-table generator, base converter and chart maker |
+| **privacy0** | emerald | 7 privacy tools — PII scrubber, file metadata stripper, encrypted local notes, browser-fingerprint check, password generator, file-hash checker, image steganography |
+| **ui0** | amber | 7 design & web tools — color picker (+ WCAG contrast), CSS gradient maker, meta / Open-Graph preview, favicon generator, QR code, URL encoder, lorem ipsum |
 
-`hub0` is the unified landing page that links them together.
+`hub0` is the unified landing page that links them together — 40 tools across five hubs, one real URL each.
 
 > Why client-side matters now: the safest way to use these alongside AI tools is to never hand your data to anyone's servers. Scrub it, decode it, query it — locally, in the tab.
 
@@ -37,7 +40,7 @@ Single Astro 5 app, `output: 'static'` (MPA) — every route ships its own CSS b
 src/
   pages/
     index.astro        # hub0 landing
-    <hub>/*.astro      # one route per tool (dev0/, web0/, data0/, privacy0/)
+    <hub>/*.astro      # one route per tool (dev0/, web0/, data0/, privacy0/, ui0/)
   hubs/
     <hub>/             # per-hub components, styles, lib
 ```
