@@ -29,5 +29,5 @@
   --shadow-lift: 0 2px 4px rgba(0,0,0,0.5), 0 14px 30px -8px rgba(0,0,0,0.55);
   --ok: #4dab9a; --warn: #cb7b37; --err: #ff7369;
 }
-html { background: var(--bg); color: var(--ink); }
+html { background: var(--bg); color: var(--ink); scrollbar-gutter: stable; }
 ::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); color: var(--ink); }

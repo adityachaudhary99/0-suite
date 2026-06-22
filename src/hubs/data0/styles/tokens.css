@@ -20,5 +20,5 @@
   --jv-key: #a78bfa; --jv-string: #c3e88d; --jv-number: #f78c6c;
   --jv-boolean: #67e8f9; --jv-null: #6b7280; --jv-punct: #6b7280;
 }
-html { background: var(--bg); color: var(--ink); }
+html { background: var(--bg); color: var(--ink); scrollbar-gutter: stable; }
 ::selection { background: var(--accent); color: var(--accent-ink); }

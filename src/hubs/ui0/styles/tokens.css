@@ -15,5 +15,5 @@
   --rule: rgba(250, 250, 249, 0.14); --rule-strong: #fafaf9;
   --ok: #4ade80; --warn: #fbbf24; --err: #f87171;
 }
-html { background: var(--bg); color: var(--ink); }
+html { background: var(--bg); color: var(--ink); scrollbar-gutter: stable; }
 ::selection { background: var(--accent); color: var(--accent-ink); }
