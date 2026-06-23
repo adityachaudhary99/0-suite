@@ -27,6 +27,9 @@ code, pre, input, textarea, select, .mono { font-family: var(--font-mono); }
 }
 
 /* Landing hub directory rows + tool chips */
+/* Per-hub accent, theme-aware so it matches each hub page exactly. */
+.hub-row { --hub: var(--hub-light); }
+[data-theme="nocturne"] .hub-row { --hub: var(--hub-dark); }
 .hub-row:hover { background: var(--bg-raised); }
 .tool-chip {
   font-family: var(--font-mono); font-size: 0.72rem;

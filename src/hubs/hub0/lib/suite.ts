@@ -25,14 +25,14 @@ export const ICONS: Record<string, string> = {
 
 export interface Tool { name: string; href: string; }
 export interface Hub {
-  name: string; slug: string; url: string; icon: string; accent: string;
+  name: string; slug: string; url: string; icon: string; accent: string; accentDark: string;
   count: string; tagline: string; desc: string; tools: Tool[];
   cls: string; featured: boolean; delay: string;
 }
 
 export const hubs: Hub[] = [
   {
-    name: 'dev0', slug: 'dev0', url: '/dev0', icon: 'terminal', accent: '#2383e2',
+    name: 'dev0', slug: 'dev0', url: '/dev0', icon: 'terminal', accent: '#2563eb', accentDark: '#60a5fa',
     count: '13', tagline: 'Developer utilities',
     desc: 'The everyday developer toolbox — decode, parse, convert and inspect without leaving the tab.',
     tools: [
@@ -53,7 +53,7 @@ export const hubs: Hub[] = [
     cls: '', featured: true, delay: '0ms',
   },
   {
-    name: 'web0', slug: 'web0', url: '/web0', icon: 'globe', accent: '#0f9488',
+    name: 'web0', slug: 'web0', url: '/web0', icon: 'globe', accent: '#0d9488', accentDark: '#2dd4bf',
     count: '6', tagline: 'Network & web',
     desc: 'DNS lookup, RDAP search, HTTP header analysis, WebSocket testing, email headers and CIDR math.',
     tools: [
@@ -67,7 +67,7 @@ export const hubs: Hub[] = [
     cls: '', featured: false, delay: '70ms',
   },
   {
-    name: 'data0', slug: 'data0', url: '/data0', icon: 'database', accent: '#9065b0',
+    name: 'data0', slug: 'data0', url: '/data0', icon: 'database', accent: '#7c3aed', accentDark: '#a78bfa',
     count: '7', tagline: 'Data & SQL',
     desc: 'A DuckDB-WASM SQL workbench plus client-side converters: CSV⇄JSON, YAML⇄JSON, SQL formatting, Markdown tables, base conversion and charts.',
     tools: [
@@ -82,7 +82,7 @@ export const hubs: Hub[] = [
     cls: '', featured: false, delay: '140ms',
   },
   {
-    name: 'privacy0', slug: 'privacy0', url: '/privacy0', icon: 'shield', accent: '#448361',
+    name: 'privacy0', slug: 'privacy0', url: '/privacy0', icon: 'shield', accent: '#059669', accentDark: '#34d399',
     count: '7', tagline: 'Privacy & safety',
     desc: 'PII scrubber, metadata stripper, AES-256-GCM notes, password generator, file-hash checker and image steganography.',
     tools: [
@@ -97,7 +97,7 @@ export const hubs: Hub[] = [
     cls: '', featured: false, delay: '210ms',
   },
   {
-    name: 'ui0', slug: 'ui0', url: '/ui0', icon: 'palette', accent: '#c2410c',
+    name: 'ui0', slug: 'ui0', url: '/ui0', icon: 'palette', accent: '#c2410c', accentDark: '#fb923c',
     count: '7', tagline: 'Design & web',
     desc: 'Front-end helpers: color picker with contrast, gradient maker, favicon and QR generators, meta-tag preview, URL encoder and lorem ipsum.',
     tools: [
