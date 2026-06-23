@@ -72,11 +72,11 @@ const jsonLd = {
         {hubs.map((hub) => (
           <div class="hub-row bg-bg p-5 sm:p-6 transition-colors" style={`--hub-light: ${hub.accent}; --hub-dark: ${hub.accentDark}`}>
             <div class="flex items-baseline gap-3 flex-wrap">
-              <a href={hub.url} class="display text-2xl tracking-tight hover:opacity-80 transition-opacity">
+              <a href={hub.url} class="stretch display text-2xl tracking-tight hover:opacity-80 transition-opacity">
                 {wordmark(hub.name)}<span style="color: var(--hub)">0</span>
               </a>
               <span class="label" style="color: var(--hub)">{hub.tagline}</span>
-              <a href={hub.url} class="label ml-auto hover:text-ink whitespace-nowrap">{hub.count} tools →</a>
+              <a href={hub.url} class="label ml-auto hover:text-ink whitespace-nowrap relative z-10">{hub.count} tools →</a>
             </div>
             <p class="mt-2 text-sm text-muted leading-relaxed max-w-3xl">{hub.desc}</p>
             <div class="mt-3 flex flex-wrap gap-2">

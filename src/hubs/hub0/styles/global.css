@@ -28,13 +28,16 @@ code, pre, input, textarea, select, .mono { font-family: var(--font-mono); }
 
 /* Landing hub directory rows + tool chips */
 /* Per-hub accent, theme-aware so it matches each hub page exactly. */
-.hub-row { --hub: var(--hub-light); }
+.hub-row { --hub: var(--hub-light); position: relative; cursor: pointer; }
 [data-theme="nocturne"] .hub-row { --hub: var(--hub-dark); }
 .hub-row:hover { background: var(--bg-raised); }
+/* Whole row clickable → hub (stretched link); tool chips sit above it. */
+.hub-row .stretch::after { content: ""; position: absolute; inset: 0; z-index: 0; }
 .tool-chip {
   font-family: var(--font-mono); font-size: 0.72rem;
   padding: 0.2rem 0.5rem; border-radius: 3px;
   border: 1px solid var(--rule); color: var(--muted);
   transition: color .12s, border-color .12s; white-space: nowrap;
+  position: relative; z-index: 1;
 }
 .tool-chip:hover { color: var(--ink); border-color: var(--hub); }
